@@ -17,7 +17,6 @@ public class WeightedGraph<V> {
         map.get(v1).add(new Edge<>(v1, v2, weight));  // Add new edge
         v1.addAdjacentVertex(v2, weight);  // Updating adjacent vertex
     }
-
     public Map<Vertex<V>, List<Edge<V>>> getMap() {
         return map;  // return map of graph
     }
