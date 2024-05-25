@@ -13,16 +13,14 @@ public class DijkstraSearch<V> implements Search<V> {
 
         while (!priorityQueue.isEmpty()) {
             Vertex<V> current = priorityQueue.poll();
-
+            System.out.println("Visiting: " + current);
             if (current.equals(end)) {
                 return buildPath(predecessors, end);  // Building way
             }
-
             for (Map.Entry<Vertex<V>, Double> neighborEntry : current.getAdjacentVertices().entrySet()) {
                 Vertex<V> neighbor = neighborEntry.getKey();
                 double weight = neighborEntry.getValue();
                 double newDist = distances.get(current) + weight;
-
                 if (newDist < distances.getOrDefault(neighbor, Double.POSITIVE_INFINITY)) {
                     distances.put(neighbor, newDist);
                     predecessors.put(neighbor, current);  // Remember previous neighbour

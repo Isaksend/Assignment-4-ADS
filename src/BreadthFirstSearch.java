@@ -10,6 +10,7 @@ public class BreadthFirstSearch<V> implements Search<V> {
         visited.add(start);
         while (!queue.isEmpty()) {
             Vertex<V> current = queue.poll();
+            System.out.println("Visiting: " + current);
             if (current.equals(end)) {
                 return buildPath(predecessors, end);  // Building way
             }
